@@ -1,8 +1,8 @@
 # Use an official slim Python image as the base image
-FROM python:3.14.0b3-slim-bullseye
+FROM python:3.13.5-slim-bullseye
 
 # Install git
-RUN apt-get update && apt-get install -y git
+RUN apt-get update && apt-get install -y git && apt-get install -y build-essential
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -18,4 +18,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 ENTRYPOINT ["python", "./python/main.py"]
 
 # Set the default arguments for the application
-CMD ["--repo-url", "https://github.com/charlesastokes/IaC-Gitlab-Bot.git", "--commit-sha1", "abc123", "--commit-sha2", "def456"]
+CMD ["--repo-url", "https://github.com/charlesastokes/IaC-Gitlab-Bot.git", "--commit-sha1", "abc123", "--commit-sha2", "def456", "--bot-debug-info", "False"]
