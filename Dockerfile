@@ -1,8 +1,8 @@
 # Use an official slim Python image as the base image
-FROM python:3.9-slim
+FROM python:3.14.0b3-slim-bullseye
 
 # Install git
-RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y git
 
 # Set the working directory inside the container
 WORKDIR /app
