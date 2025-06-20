@@ -1,6 +1,7 @@
 import argparse
 from git import Repo
 from pydantic_ai_agent import summarize_iac_changes
+from create_codebase_string import lazy_concatenate_tf_files
 
 def main():
     parser = argparse.ArgumentParser(description="IaC-Gitlab-Bot")
@@ -29,7 +30,11 @@ def main():
         print(f"Creating diff between {args.commit_sha1} and {args.commit_sha2}")
     diff = cloned_repo.git.diff(args.commit_sha1, args.commit_sha2)
 
-    summarize_iac_changes(diff)
+    #Create a concatenated representation of the code base as of the original sha
+    cloned_repo_original_sha = cloned_repo.commit(args.commit_sha1)
+    tf_files_string = lazy_concatenate_tf_files(cloned_repo_original_sha)
 
+    #Summarize IaC Changes
+    summarize_iac_changes(diff, tf_files_string)
 if __name__ == "__main__":
     main()
