@@ -20,6 +20,9 @@ def main():
     if not cloned_repo.commit(args.commit_sha2):
         raise ValueError(f"Commit SHA2 {args.commit_sha2} does not exist in the repository.")
     print(f"Creating diff between {args.commit_sha1} and {args.commit_sha2}")
+    diff = cloned_repo.git.diff(args.commit_sha1, args.commit_sha2)
+    print("Diff between commits:")
+    print(diff)
 
 if __name__ == "__main__":
     main()
