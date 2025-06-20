@@ -19,10 +19,8 @@ def main():
         raise ValueError(f"Commit SHA1 {args.commit_sha1} does not exist in the repository.")
     if not cloned_repo.commit(args.commit_sha2):
         raise ValueError(f"Commit SHA2 {args.commit_sha2} does not exist in the repository.")
-    print(f"Creating diff between {args.commit_sha1} and {args.commit_sha2}")
-    diff = cloned_repo.git.diff(args.commit_sha1, args.commit_sha2)
-    print("Diff between commits:")
-    print(diff)
+    from pydantic_ai import print_diff
+    print_diff(cloned_repo, args.commit_sha1, args.commit_sha2)
 
 if __name__ == "__main__":
     main()
