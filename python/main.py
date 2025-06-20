@@ -1,5 +1,6 @@
 import argparse
 from git import Repo
+from pydantic_ai import print_diff
 
 def main():
     parser = argparse.ArgumentParser(description="IaC-Gitlab-Bot")
@@ -19,7 +20,7 @@ def main():
         raise ValueError(f"Commit SHA1 {args.commit_sha1} does not exist in the repository.")
     if not cloned_repo.commit(args.commit_sha2):
         raise ValueError(f"Commit SHA2 {args.commit_sha2} does not exist in the repository.")
-    from pydantic_ai import print_diff
+    print("Commit Shas exist in the repository.\n\n")
     print_diff(cloned_repo, args.commit_sha1, args.commit_sha2)
 
 if __name__ == "__main__":
