@@ -11,8 +11,14 @@ def main():
     print(f"Cloning repository: {args.repo_url}")
     # Clone the repository using GitPython
     clone_dir = "./repo_clone"
-    Repo.clone_from(args.repo_url, clone_dir)
+    cloned_repo = Repo.clone_from(args.repo_url, clone_dir)
     print(f"Repository cloned to {clone_dir}")
+    #print(f"Cloned repo head branch: {cloned_repo.head.ref}")
+    # Make sure both commit shas exist in the cloned repository
+    if not cloned_repo.commit(args.commit_sha1):
+        raise ValueError(f"Commit SHA1 {args.commit_sha1} does not exist in the repository.")
+    if not cloned_repo.commit(args.commit_sha2):
+        raise ValueError(f"Commit SHA2 {args.commit_sha2} does not exist in the repository.")
     print(f"Creating diff between {args.commit_sha1} and {args.commit_sha2}")
 
 if __name__ == "__main__":
