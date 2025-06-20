@@ -16,7 +16,7 @@ To build and run the container, execute:
 
 ```bash
 docker build -t iac-gitlab-bot .
-docker run --rm iac-gitlab-bot
+docker run --rm iac-gitlab-bot --repo-url <repository-url> --commit-sha1 <commit-sha1> --commit-sha2 <commit-sha2>
 ```
 
 Feel free to extend and modify the project as needed.

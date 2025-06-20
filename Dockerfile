@@ -16,4 +16,4 @@ COPY python/ ./python/
 
 # Set the default command to run your Python application.
 # Adjust the entry point file and path as needed.
-CMD ["python", "./python/main.py"]
+CMD ["python", "./python/main.py", "--repo-url", "https://example.com/repo.git", "--commit-sha1", "abc123", "--commit-sha2", "def456"]
