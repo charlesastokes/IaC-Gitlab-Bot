@@ -23,6 +23,10 @@ docker run -e OPEN_AI_KEY --rm iac-gitlab-bot --repo-url <repository-url> --comm
 ## Example Usage
 ```docker run -e OPENAI_API_KEY --rm iac-gitlab-bot --repo-url=https://github.com/charlesastokes/IaC-Gitlab-Bot.git --commit-sha1=8fdd6a9d3c16847b11c33f5459fa80e6511f9dfe --commit-sha2=eabf5dbeae6e4ac7ab9058a164e38283cf71ed66```
 
+Additional Example using IAM policy change:
+```
+docker run -e OPENAI_API_KEY --rm iac-gitlab-bot --repo-url=https://github.com/charlesastokes/ExampleTerraformChanges.git --commit-sha1=129340e322cb26d3a93072738bbf0df0f68fb47d --commit-sha2=23e1ca1684c03e5813106134f0e0457a2d0df244
+```
 ## Additional Options
 
 To include debugging output, add the option `--bot-debug-info=true`
