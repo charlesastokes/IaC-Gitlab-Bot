@@ -1,6 +1,7 @@
 from pydantic_ai import Agent
 from pydantic_ai.models.openai import OpenAIModel
 
+#TODO include a graph representation of the codebase
 
 def summarize_iac_changes(diff, codebase_original_sha):
 

@@ -20,6 +20,9 @@ export OPEN_AI_KEY=<insert key>
 docker run -e OPEN_AI_KEY --rm iac-gitlab-bot --repo-url <repository-url> --commit-sha1 <commit-sha1> --commit-sha2 <commit-sha2>
 ```
 
+## Example Usage
+```docker run -e OPENAI_API_KEY --rm iac-gitlab-bot --repo-url=https://github.com/charlesastokes/IaC-Gitlab-Bot.git --commit-sha1=8fdd6a9d3c16847b11c33f5459fa80e6511f9dfe --commit-sha2=eabf5dbeae6e4ac7ab9058a164e38283cf71ed66```
+
 ## Additional Options
 
 To include debugging output, add the option `--bot-debug-info=true`

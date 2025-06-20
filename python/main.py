@@ -3,6 +3,7 @@ from git import Repo
 from pydantic_ai_agent import summarize_iac_changes
 from create_codebase_string import lazy_concatenate_tf_files
 
+#TODO add trace level logging outside of stdout, change debug option
 def main():
     parser = argparse.ArgumentParser(description="IaC-Gitlab-Bot")
     parser.add_argument('--repo-url', type=str, help='URL of the Git repository to clone')

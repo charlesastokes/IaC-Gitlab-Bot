@@ -1,5 +1,10 @@
 from git import Repo
 
+#TODO - lot of hack in this file, I'm tired :)
+# Add in the OpenTofu binary to interrogate each directory with TF files to see if it's a valid module to better understand mono-repos when present
+# Add in an in-memory graph representation of the TF files to suppliment the model input
+# Use better naming conventions and more effecient string concatenation
+
 def lazy_concatenate_tf_files(pygit_codebase):
     return terraform_blobs_to_string(pygit_codebase)
 
