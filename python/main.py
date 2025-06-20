@@ -9,6 +9,10 @@ def main():
     args = parser.parse_args()
 
     print(f"Cloning repository: {args.repo_url}")
+    # Clone the repository using GitPython
+    clone_dir = "./repo_clone"
+    Repo.clone_from(args.repo_url, clone_dir)
+    print(f"Repository cloned to {clone_dir}")
     print(f"Creating diff between {args.commit_sha1} and {args.commit_sha2}")
 
 if __name__ == "__main__":
