@@ -1,4 +1,5 @@
 import argparse
+from git import Repo
 
 def main():
     parser = argparse.ArgumentParser(description="IaC-Gitlab-Bot")
