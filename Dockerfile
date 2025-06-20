@@ -11,9 +11,11 @@ WORKDIR /app
 COPY python/ ./python/
 
 # (Optional) If you have a requirements.txt, copy and install dependencies:
-# COPY requirements.txt .
-# RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Set the default command to run your Python application.
-# Adjust the entry point file and path as needed.
-CMD ["python", "./python/main.py", "--repo-url", "https://example.com/repo.git", "--commit-sha1", "abc123", "--commit-sha2", "def456"]
+# Set the entrypoint to run the Python application
+ENTRYPOINT ["python", "./python/main.py"]
+
+# Set the default arguments for the application
+CMD ["--repo-url", "https://github.com/charlesastokes/IaC-Gitlab-Bot.git", "--commit-sha1", "abc123", "--commit-sha2", "def456"]
