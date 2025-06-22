@@ -2,6 +2,7 @@ import argparse
 from git import Repo
 from pydantic_ai_agent import summarize_iac_changes
 from create_codebase_string import lazy_concatenate_tf_files
+from find_tf_dirs import find_tf_directories
 
 #TODO add trace level logging outside of stdout, change debug option
 def main():
@@ -37,5 +38,6 @@ def main():
 
     #Summarize IaC Changes
     summarize_iac_changes(diff, tf_files_string)
+    #print(find_tf_directories(cloned_repo.working_tree_dir))
 if __name__ == "__main__":
     main()
